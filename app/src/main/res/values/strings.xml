@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="developer_testing">Developer\nTesting</string>
+    <string name="user_name">User name</string>
+    <string name="skill_level">Skill level</string>
+    <string name="novice">Novice</string>
+    <string name="advanced_beginner">Advanced beginner</string>
+    <string name="competent">Competent</string>
+    <string name="proficient">Proficient</string>
+    <string name="expert">Expert</string>
+    <string name="login">Login</string>
 </resources>
