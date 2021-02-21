@@ -8,7 +8,7 @@ import com.mars.ai1.R
 import com.mars.ai1.data.repository.questions.QuestionRepository
 import com.mars.ai1.databinding.FragmentQuestionsBinding
 import dagger.hilt.android.AndroidEntryPoint
-import layout.QuestionsAdapter
+import com.mars.ai1.presentation.testing.adapter.QuestionsAdapter
 import javax.inject.Inject
 
 @AndroidEntryPoint

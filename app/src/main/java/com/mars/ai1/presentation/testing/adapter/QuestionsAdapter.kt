@@ -1,4 +1,4 @@
-package layout
+package com.mars.ai1.presentation.testing.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
