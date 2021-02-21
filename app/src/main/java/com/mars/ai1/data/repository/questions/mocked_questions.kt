@@ -1,8 +1,8 @@
-package com.mars.ai1.data.questions
+package com.mars.ai1.data.repository.questions
 
-import com.mars.ai1.data.questions.models.AnswerOption
-import com.mars.ai1.data.questions.models.Question
-import com.mars.ai1.data.questions.models.QuestionBlock
+import com.mars.ai1.data.repository.questions.models.AnswerOption
+import com.mars.ai1.data.repository.questions.models.Question
+import com.mars.ai1.data.repository.questions.models.QuestionBlock
 
 
 val mockedQuestions: List<QuestionBlock> = listOf(

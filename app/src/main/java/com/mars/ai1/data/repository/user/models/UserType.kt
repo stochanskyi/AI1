@@ -1,4 +1,4 @@
-package com.mars.ai1.data.user.models
+package com.mars.ai1.data.repository.user.models
 
 import androidx.annotation.StringRes
 import com.mars.ai1.R

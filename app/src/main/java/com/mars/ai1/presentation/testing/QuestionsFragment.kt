@@ -5,8 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mars.ai1.R
-import com.mars.ai1.data.questions.QuestionRepository
-import com.mars.ai1.data.questions.QuestionRepositoryImpl
+import com.mars.ai1.data.repository.questions.QuestionRepository
 import com.mars.ai1.databinding.FragmentQuestionsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import layout.QuestionsAdapter

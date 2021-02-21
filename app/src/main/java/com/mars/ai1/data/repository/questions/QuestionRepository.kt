@@ -1,6 +1,6 @@
-package com.mars.ai1.data.questions
+package com.mars.ai1.data.repository.questions
 
-import com.mars.ai1.data.questions.models.QuestionBlock
+import com.mars.ai1.data.repository.questions.models.QuestionBlock
 import javax.inject.Inject
 
 interface QuestionRepository {

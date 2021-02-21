@@ -1,6 +1,6 @@
 package com.mars.ai1.data.storage
 
-import com.mars.ai1.data.user.models.User
+import com.mars.ai1.data.repository.user.models.User
 import javax.inject.Inject
 
 interface UserStorage {

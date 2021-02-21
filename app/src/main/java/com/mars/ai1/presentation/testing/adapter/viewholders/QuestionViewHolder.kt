@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
-import com.mars.ai1.data.questions.models.AnswerOption
-import com.mars.ai1.data.questions.models.Question
+import com.mars.ai1.data.repository.questions.models.AnswerOption
+import com.mars.ai1.data.repository.questions.models.Question
 import com.mars.ai1.databinding.ViewHolderQuestionBinding
 
 class QuestionViewHolder private constructor(private val binding: ViewHolderQuestionBinding) :

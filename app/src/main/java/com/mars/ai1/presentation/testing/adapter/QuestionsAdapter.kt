@@ -2,7 +2,7 @@ package layout
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mars.ai1.data.questions.models.Question
+import com.mars.ai1.data.repository.questions.models.Question
 import com.mars.ai1.presentation.testing.adapter.viewholders.QuestionViewHolder
 
 class QuestionsAdapter(
