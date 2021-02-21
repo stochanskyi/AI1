@@ -20,14 +20,14 @@ class QuestionViewHolder private constructor(private val binding: ViewHolderQues
 
     fun bind(
         model: Question,
-        answerChangedBlock: (Long, Long) -> Unit
+        answerChangedBlock: (Int, Int) -> Unit
     ) {
         binding.questionTextView.text = model.content
         model.answerOptions.forEach {
             addAnswerOption(it)
         }
         binding.answersGroup.setOnCheckedChangeListener { group, checkedId ->
-            answerChangedBlock(model.id, group.findViewById<RadioButton>(checkedId).tag as Long)
+            answerChangedBlock(model.id, group.findViewById<RadioButton>(checkedId).tag as Int)
         }
     }
 

@@ -1,10 +1,9 @@
 package com.mars.ai1.app.di
 
 import android.content.Context
-import android.service.controls.templates.ControlTemplate
-import androidx.room.Dao
 import androidx.room.Room
 import com.mars.ai1.data.db.common.AppDatabase
+import com.mars.ai1.data.db.questionsAnswers.QuestionsAnswersDao
 import com.mars.ai1.data.db.users.UsersDao
 import dagger.Module
 import dagger.Provides
@@ -24,9 +23,12 @@ class DatabaseModule {
     }
 
     @Provides
-    fun provideUsersDao(
-        db: AppDatabase
-    ): UsersDao {
+    fun provideUsersDao(db: AppDatabase): UsersDao {
         return db.usersDao
+    }
+
+    @Provides
+    fun provideAnswersDao(db: AppDatabase): QuestionsAnswersDao {
+        return db.questionsAnswersDao
     }
 }

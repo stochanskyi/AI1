@@ -3,7 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_questions">
+    app:startDestination="@id/fragment_blocks">
+
+    <fragment
+        android:id="@+id/fragment_blocks"
+        android:name="com.mars.ai1.presentation.blocks.BlocksFragment"
+        tools:layout="@layout/fragment_blocks">
+
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_questions"

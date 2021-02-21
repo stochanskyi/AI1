@@ -6,7 +6,7 @@ import com.mars.ai1.data.repository.questions.models.Question
 import com.mars.ai1.presentation.testing.adapter.viewholders.QuestionViewHolder
 
 class QuestionsAdapter(
-    private val answerChangedBlock: (questionId: Long, answerId: Long) -> Unit
+    private val answerChangedBlock: (questionId: Int, answerId: Int) -> Unit
 ): RecyclerView.Adapter<QuestionViewHolder>() {
 
     private val items: MutableList<Question> = mutableListOf()
