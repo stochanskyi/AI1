@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingStart="40dp"
     android:paddingEnd="40dp"
-    tools:context=".presentation.login.LoginFragment">
+    tools:context=".presentation.login.LoginActivity">
 
     <Space
         android:layout_width="match_parent"
