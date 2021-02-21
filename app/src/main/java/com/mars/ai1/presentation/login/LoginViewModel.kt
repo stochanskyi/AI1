@@ -1,6 +1,5 @@
 package com.mars.ai1.presentation.login
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mars.ai1.data.repository.user.UserRepository
