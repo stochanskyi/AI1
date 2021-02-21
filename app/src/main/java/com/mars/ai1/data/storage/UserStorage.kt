@@ -1,7 +1,12 @@
 package com.mars.ai1.data.storage
 
 import com.mars.ai1.data.user.models.User
+import javax.inject.Inject
 
-object UserStorage {
-    var currentUser: User? = null
+interface UserStorage {
+    var currentUser: User?
+}
+
+class UserStorageImpl @Inject constructor() : UserStorage {
+    override var currentUser: User? = null
 }
