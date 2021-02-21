@@ -18,7 +18,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun initViews(binding: FragmentLoginBinding) {
-
     }
 
     private fun initListeners(binding: FragmentLoginBinding) = binding.run {
