@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.mars.ai1.data.repository.questions.QuestionsRepository
 import com.mars.ai1.data.repository.questions.models.Question
 import com.mars.ai1.data.repository.questions.models.QuestionBlock
+import com.mars.ai1.utils.livedata.SingleLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,6 +34,9 @@ class QuestionsViewModel @Inject constructor(
     private val _isSaveEnabled: MutableLiveData<Boolean> = MutableLiveData()
     val isSaveEnabled: LiveData<Boolean> = _isSaveEnabled
 
+    private val _toBlocksLiveData: SingleLiveData<Unit> = SingleLiveData()
+    val toBlocksLiveData: LiveData<Unit> = _toBlocksLiveData
+
     fun setQuestionAnswer(questionId: Int, answerId: Int) {
         val question = block.questions.firstOrNull { it.id == questionId } ?: return
 
@@ -43,6 +47,7 @@ class QuestionsViewModel @Inject constructor(
     fun saveAnswers() {
         viewModelScope.launch {
             repository.answerQuestions(block.id, block.questions)
+            _toBlocksLiveData.call()
         }
     }
 

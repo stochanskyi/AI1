@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -55,6 +56,9 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
         }
         viewModel.isSaveEnabled.observe(viewLifecycleOwner) {
             binding.saveButton.isVisible = it
+        }
+        viewModel.toBlocksLiveData.observe(viewLifecycleOwner) {
+            Navigation.findNavController(binding.root).navigate(R.id.action_to_blocks)
         }
     }
 

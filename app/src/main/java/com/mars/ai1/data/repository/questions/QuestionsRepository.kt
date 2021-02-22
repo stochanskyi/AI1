@@ -51,7 +51,7 @@ class QuestionsRepositoryImpl @Inject constructor(
     private fun QuestionBlockDataModel.parse(answers: List<QuestionAnswerEntity>): QuestionBlock {
         val questionsWithAnswers = questions.map { question ->
             val answer = answers.firstOrNull { it.questionId == question.id && it.blockId == id }
-            question.parse(answer?.id)
+            question.parse(answer?.answerId)
         }
         return QuestionBlock(id, name, questionsWithAnswers)
     }

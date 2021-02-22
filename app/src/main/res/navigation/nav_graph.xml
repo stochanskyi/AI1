@@ -25,6 +25,11 @@
             android:name="block"
             app:argType="com.mars.ai1.data.repository.questions.models.QuestionBlock" />
 
+        <action
+            android:id="@+id/action_to_blocks"
+            app:destination="@id/fragment_blocks"
+            app:popUpTo="@id/fragment_blocks"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>
