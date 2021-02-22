@@ -15,6 +15,7 @@ import javax.inject.Inject
 interface QuestionsRepository {
     suspend fun getQuestionBlocks(): List<QuestionBlock>
     suspend fun clearAnswers(blockId: Int)
+    suspend fun answerQuestions(blockId: Int, answers: List<Question>)
 }
 
 class QuestionsRepositoryImpl @Inject constructor(
@@ -37,9 +38,20 @@ class QuestionsRepositoryImpl @Inject constructor(
         answersDataSource.clearAnswersForBlock(userId, blockId)
     }
 
+    override suspend fun answerQuestions(blockId: Int, questrions: List<Question>) {
+        val userId = userStorage.currentUser?.id ?: return
+
+        val entities = questrions
+            .filter { it.answer != null }
+            .map { QuestionAnswerEntity(userId, blockId, it.id, it.answer!!.answerId) }
+
+        answersDataSource.answerBlock(entities)
+    }
+
+
     private fun QuestionBlockDataModel.parse(answers: List<QuestionAnswerEntity>): QuestionBlock {
         val questionsWithAnswers = questions.map { question ->
-            val answer = answers?.firstOrNull { it.questionId == question.id && it.blockId == id }
+            val answer = answers.firstOrNull { it.questionId == question.id && it.blockId == id }
             question.parse(answer?.id)
         }
         return QuestionBlock(id, name, questionsWithAnswers)

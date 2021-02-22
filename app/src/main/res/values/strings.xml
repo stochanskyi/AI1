@@ -15,4 +15,5 @@
     <string name="summary">Summary</string>
     <string name="reset">Reset</string>
     <string name="blocks_title">Select block to start testing or view your statistics</string>
+    <string name="save">Save</string>
 </resources>
