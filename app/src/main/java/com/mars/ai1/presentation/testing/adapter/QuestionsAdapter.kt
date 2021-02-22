@@ -11,7 +11,7 @@ class QuestionsAdapter(
 
     private val items: MutableList<Question> = mutableListOf()
 
-    fun addItems(items: List<Question>) {
+    fun setItems(items: List<Question>) {
         this.items.apply {
             clear()
             addAll(items)

@@ -10,11 +10,21 @@
         android:name="com.mars.ai1.presentation.blocks.BlocksFragment"
         tools:layout="@layout/fragment_blocks">
 
+        <action
+            android:id="@+id/action_to_questions"
+            app:destination="@id/fragment_questions" />
+
     </fragment>
 
     <fragment
         android:id="@+id/fragment_questions"
         android:name="com.mars.ai1.presentation.testing.QuestionsFragment"
-        tools:layout="@layout/fragment_questions" />
+        tools:layout="@layout/fragment_questions">
+
+        <argument
+            android:name="block"
+            app:argType="com.mars.ai1.data.repository.questions.models.QuestionBlock" />
+
+    </fragment>
 
 </navigation>

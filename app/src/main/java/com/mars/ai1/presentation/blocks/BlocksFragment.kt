@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mars.ai1.R
@@ -27,7 +28,9 @@ class BlocksFragment : Fragment(R.layout.fragment_blocks) {
     private fun initViews(binding: FragmentBlocksBinding) {
         binding.blocksRecyclerView.apply {
             adapter = BlocksAdapter(
-                {}, {}, {}, {}
+                {
+                viewModel.startBlockTest(it)
+                }, {}, {}, {}
             )
             layoutManager = LinearLayoutManager(requireContext())
         }
@@ -36,6 +39,10 @@ class BlocksFragment : Fragment(R.layout.fragment_blocks) {
     private fun initObservers(binding: FragmentBlocksBinding) {
         viewModel.blocksLiveData.observe(viewLifecycleOwner) {
             binding.blocksRecyclerView.adapterAction { setItems(it) }
+        }
+        viewModel.startBlockLiveData.observe(viewLifecycleOwner) {
+            val action = BlocksFragmentDirections.actionToQuestions(it)
+            Navigation.findNavController(requireView()).navigate(action)
         }
     }
 
