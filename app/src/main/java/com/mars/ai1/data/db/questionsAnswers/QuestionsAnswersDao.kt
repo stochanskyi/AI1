@@ -20,4 +20,7 @@ interface QuestionsAnswersDao {
 
     @Query("DELETE FROM questions_answers WHERE block_id=:blockId AND user_id=:userId")
     suspend fun deleteAnswersForBlock(userId: Int, blockId: Int)
+
+    @Query("DELETE FROM questions_answers WHERE user_id=:userId")
+    suspend fun deleteAnswers(userId: Int)
 }

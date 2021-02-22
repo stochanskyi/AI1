@@ -8,6 +8,7 @@ interface AnswersDataSource {
     suspend fun getUserAnswers(userId: Int): List<QuestionAnswerEntity>
     suspend fun answerBlock(answers: List<QuestionAnswerEntity>)
     suspend fun clearAnswersForBlock(userId: Int, blockId: Int)
+    suspend fun clearAnswers(userId: Int)
 }
 
 class AnswersDataSourceImpl @Inject constructor(
@@ -26,6 +27,14 @@ class AnswersDataSourceImpl @Inject constructor(
     }
 
     override suspend fun clearAnswersForBlock(userId: Int, blockId: Int) {
-        answersDao.deleteAnswersForBlock(userId, blockId)
+        withIOContext {
+            answersDao.deleteAnswersForBlock(userId, blockId)
+        }
+    }
+
+    override suspend fun clearAnswers(userId: Int) {
+        withIOContext {
+            answersDao.deleteAnswers(userId)
+        }
     }
 }

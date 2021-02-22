@@ -25,19 +25,34 @@ class BlocksViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             blocks = questionsRepository.getQuestionBlocks()
-            _blocksLiveData.value = blocks.map { it.asViewData() }
+            updateBlocksViewData()
         }
     }
 
     fun startBlockTest(id: Int) {
-        viewModelScope.launch {
-            val block = blocks.firstOrNull { it.id == id } ?: return@launch
-
-            questionsRepository.clearAnswers(id)
+            val block = blocks.firstOrNull { it.id == id } ?: return
             block.questions.forEach { it.answer = null }
-
+        viewModelScope.launch {
+            questionsRepository.clearAnswers(id)
             _startBlockLiveData.value = block
+            updateBlocksViewData()
         }
+    }
+
+    fun resetAllTest() {
+        blocks.forEach { block ->
+            block.questions.forEach {
+                it.answer = null
+            }
+        }
+        viewModelScope.launch {
+            questionsRepository.clearAllAnswers()
+            updateBlocksViewData()
+        }
+    }
+
+    private fun updateBlocksViewData() {
+        _blocksLiveData.value = blocks.map { it.asViewData() }
     }
 
     private fun QuestionBlock.asViewData(): BlockViewData {

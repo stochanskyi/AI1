@@ -30,7 +30,13 @@ class BlocksFragment : Fragment(R.layout.fragment_blocks) {
             adapter = BlocksAdapter(
                 {
                 viewModel.startBlockTest(it)
-                }, {}, {}, {}
+                }, {
+
+                }, {
+                   viewModel.resetAllTest()
+                }, {
+
+                }
             )
             layoutManager = LinearLayoutManager(requireContext())
         }
