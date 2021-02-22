@@ -51,6 +51,7 @@ class QuestionsRepositoryImpl @Inject constructor(
             .filter { it.answer != null }
             .map { QuestionAnswerEntity(userId, blockId, it.id, it.answer!!.answerId) }
 
+        answersDataSource.clearAnswersForBlock(userId, blockId)
         answersDataSource.answerBlock(entities)
     }
 

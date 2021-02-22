@@ -30,13 +30,8 @@ class BlocksViewModel @Inject constructor(
     }
 
     fun startBlockTest(id: Int) {
-            val block = blocks.firstOrNull { it.id == id } ?: return
-            block.questions.forEach { it.answer = null }
-        viewModelScope.launch {
-            questionsRepository.clearAnswers(id)
-            _startBlockLiveData.value = block
-            updateBlocksViewData()
-        }
+        val block = blocks.firstOrNull { it.id == id } ?: return
+        _startBlockLiveData.value = block
     }
 
     fun resetAllTest() {
