@@ -22,6 +22,9 @@ class BlocksViewModel @Inject constructor(
     private val _startBlockLiveData: SingleLiveData<QuestionBlock> = SingleLiveData()
     val startBlockLiveData: LiveData<QuestionBlock> = _startBlockLiveData
 
+    private val _toBlockStatistics: SingleLiveData<QuestionBlock> = SingleLiveData()
+    val toBlockStatistics: LiveData<QuestionBlock> = _toBlockStatistics
+
     init {
         viewModelScope.launch {
             blocks = questionsRepository.getQuestionBlocks()
@@ -32,6 +35,11 @@ class BlocksViewModel @Inject constructor(
     fun startBlockTest(id: Int) {
         val block = blocks.firstOrNull { it.id == id } ?: return
         _startBlockLiveData.value = block
+    }
+
+    fun showBlockStatistics(id: Int) {
+        val block = blocks.firstOrNull { it.id == id } ?: return
+        _toBlockStatistics.value = block
     }
 
     fun resetAllTest() {

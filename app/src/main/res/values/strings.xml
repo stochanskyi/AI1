@@ -16,4 +16,8 @@
     <string name="reset">Reset</string>
     <string name="blocks_title">Select block to start testing or view your statistics</string>
     <string name="save">Save</string>
+    <string name="block_statistic">%s block statistic</string>
+    <string name="block_marks_sum">Your block marks sum: %d</string>
+    <string name="question_number">Question number</string>
+    <string name="question_mark">Mark</string>
 </resources>

@@ -14,6 +14,10 @@
             android:id="@+id/action_to_questions"
             app:destination="@id/fragment_questions" />
 
+        <action
+            android:id="@+id/action_to_block_statistics"
+            app:destination="@id/fragment_block_statistics" />
+
     </fragment>
 
     <fragment
@@ -30,6 +34,18 @@
             app:destination="@id/fragment_blocks"
             app:popUpTo="@id/fragment_blocks"
             app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_block_statistics"
+        android:name="com.mars.ai1.presentation.statistics.block.BlockStatisticsFragment"
+        tools:layout="@layout/fragment_block_statistics">
+
+        <argument
+            android:name="block"
+            app:argType="com.mars.ai1.data.repository.questions.models.QuestionBlock" />
+
     </fragment>
 
 </navigation>
