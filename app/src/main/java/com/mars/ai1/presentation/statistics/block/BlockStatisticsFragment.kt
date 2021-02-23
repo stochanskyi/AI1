@@ -57,6 +57,9 @@ class BlockStatisticsFragment : Fragment(R.layout.fragment_block_statistics) {
         cartesian.xAxis(0).title(getString(R.string.question_number))
         cartesian.yAxis(0).title(getString(R.string.question_mark))
 
-        binding.anyChartView.setChart(cartesian)
+        binding.anyChartView.apply {
+            setProgressBar(binding.progressBar)
+            setChart(cartesian)
+        }
     }
 }

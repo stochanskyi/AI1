@@ -48,9 +48,13 @@ class TestStatisticsFragment : Fragment(R.layout.fragment_test_statistics) {
             .format("\${%Value}{groupsSeparator: }")
         cartesian.animation(true)
 
+
         cartesian.xAxis(0).title(getString(R.string.skill_level))
         cartesian.yAxis(0).title(getString(R.string.question_mark))
 
-        binding.anyChartView.setChart(cartesian)
+        binding.anyChartView.apply {
+            setProgressBar(binding.progressBar)
+            setChart(cartesian)
+        }
     }
 }
