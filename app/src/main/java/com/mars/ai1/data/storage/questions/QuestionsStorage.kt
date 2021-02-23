@@ -149,7 +149,7 @@ class QuestionsStorageImpl @Inject constructor() : QuestionsStorage {
                 ),
                 QuestionDataModel(
                     7,
-                    "•\tЧи відчуваєте ви загальний контекст вирішення задачі?",
+                    "Чи відчуваєте ви загальний контекст вирішення задачі?",
                     listOf(
                         AnswerOptionDataModel(
                             1,

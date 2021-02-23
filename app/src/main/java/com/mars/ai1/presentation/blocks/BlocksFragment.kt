@@ -35,7 +35,7 @@ class BlocksFragment : Fragment(R.layout.fragment_blocks) {
                 }, {
                    viewModel.resetAllTest()
                 }, {
-
+                    viewModel.showTestStatistics()
                 }
             )
             layoutManager = LinearLayoutManager(requireContext())
@@ -52,6 +52,10 @@ class BlocksFragment : Fragment(R.layout.fragment_blocks) {
         }
         viewModel.toBlockStatistics.observe(viewLifecycleOwner) {
             val action = BlocksFragmentDirections.actionToBlockStatistics(it)
+            Navigation.findNavController(requireView()).navigate(action)
+        }
+        viewModel.toTestStatistics.observe(viewLifecycleOwner) {
+            val action = BlocksFragmentDirections.actionToTestStatistics(it.toTypedArray())
             Navigation.findNavController(requireView()).navigate(action)
         }
     }

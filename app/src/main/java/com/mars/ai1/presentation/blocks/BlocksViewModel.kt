@@ -25,6 +25,9 @@ class BlocksViewModel @Inject constructor(
     private val _toBlockStatistics: SingleLiveData<QuestionBlock> = SingleLiveData()
     val toBlockStatistics: LiveData<QuestionBlock> = _toBlockStatistics
 
+    private val _toTestStatistics: SingleLiveData<List<QuestionBlock>> = SingleLiveData()
+    val toTestStatistics: LiveData<List<QuestionBlock>> = _toTestStatistics
+
     init {
         viewModelScope.launch {
             blocks = questionsRepository.getQuestionBlocks()
@@ -52,6 +55,10 @@ class BlocksViewModel @Inject constructor(
             questionsRepository.clearAllAnswers()
             updateBlocksViewData()
         }
+    }
+
+    fun showTestStatistics() {
+        _toTestStatistics.value = blocks
     }
 
     private fun updateBlocksViewData() {

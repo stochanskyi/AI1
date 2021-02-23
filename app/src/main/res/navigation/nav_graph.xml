@@ -18,6 +18,10 @@
             android:id="@+id/action_to_block_statistics"
             app:destination="@id/fragment_block_statistics" />
 
+        <action
+            android:id="@+id/action_to_test_statistics"
+            app:destination="@id/fragment_test_statistics" />
+
     </fragment>
 
     <fragment
@@ -45,6 +49,17 @@
         <argument
             android:name="block"
             app:argType="com.mars.ai1.data.repository.questions.models.QuestionBlock" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_test_statistics"
+        android:name="com.mars.ai1.presentation.statistics.test.TestStatisticsFragment"
+        tools:layout="@layout/fragment_block_statistics">
+
+        <argument
+            android:name="blocks"
+            app:argType="com.mars.ai1.data.repository.questions.models.QuestionBlock[]" />
 
     </fragment>
 
