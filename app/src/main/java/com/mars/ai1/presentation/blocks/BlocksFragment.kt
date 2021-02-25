@@ -29,11 +29,13 @@ class BlocksFragment : Fragment(R.layout.fragment_blocks) {
         binding.blocksRecyclerView.apply {
             adapter = BlocksAdapter(
                 {
-                viewModel.startBlockTest(it)
+                    viewModel.startBlockTest(it)
                 }, {
-                   viewModel.showBlockStatistics(it)
+                    viewModel.resetBlock(it)
                 }, {
-                   viewModel.resetAllTest()
+                    viewModel.showBlockStatistics(it)
+                }, {
+                    viewModel.resetAllTest()
                 }, {
                     viewModel.showTestStatistics()
                 }

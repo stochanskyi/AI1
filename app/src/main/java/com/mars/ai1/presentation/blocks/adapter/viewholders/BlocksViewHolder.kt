@@ -41,6 +41,7 @@ class BlocksViewHolder private constructor(
     fun bind(
         data: BlockViewData,
         startClickBlock: (Int) -> Unit,
+        resetBlockButton: (Int) -> Unit,
         statisticsClickBlock: (Int) -> Unit
     ) {
         binding.run {
@@ -50,7 +51,13 @@ class BlocksViewHolder private constructor(
                     if (data.isCompleted) R.string.again
                     else R.string.start_test
                 )
+
                 setOnClickListener { startClickBlock(data.id) }
+            }
+
+            resetButton.apply {
+                isVisible = data.isCompleted
+                setOnClickListener { resetBlockButton(data.id) }
             }
             statisticsButton.apply {
                 isVisible = data.isCompleted
@@ -62,5 +69,6 @@ class BlocksViewHolder private constructor(
     fun release() {
         binding.startButton.setOnClickListener(null)
         binding.statisticsButton.setOnClickListener(null)
+        binding.resetButton.setOnClickListener(null)
     }
 }

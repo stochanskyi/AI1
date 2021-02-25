@@ -7,6 +7,7 @@ import com.mars.ai1.presentation.blocks.models.BlockViewData
 
 class BlocksAdapter(
     private val startQuestionsBlock: (Int) -> Unit,
+    private val resetBlock: (Int) -> Unit,
     private val statisticsBlock: (Int) -> Unit,
     private val resetTestBlock: () -> Unit,
     private val testStatisticsBlock: () -> Unit
@@ -28,7 +29,7 @@ class BlocksAdapter(
 
     override fun onBindViewHolder(holder: BlocksViewHolder, position: Int) {
         if (position == 0) holder.bindSummary(resetTestBlock, testStatisticsBlock)
-        else holder.bind(items[position - 1], startQuestionsBlock, statisticsBlock)
+        else holder.bind(items[position - 1], startQuestionsBlock, resetBlock, statisticsBlock)
     }
 
     override fun onViewRecycled(holder: BlocksViewHolder) {

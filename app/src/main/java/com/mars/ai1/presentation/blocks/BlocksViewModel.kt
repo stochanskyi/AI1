@@ -40,6 +40,14 @@ class BlocksViewModel @Inject constructor(
         _startBlockLiveData.value = block
     }
 
+    fun resetBlock(id: Int) {
+        viewModelScope.launch {
+            questionsRepository.clearAnswers(id)
+            blocks.firstOrNull { it.id == id }?.let { it.questions.forEach { a ->  a.answer = null } }
+            updateBlocksViewData()
+        }
+    }
+
     fun showBlockStatistics(id: Int) {
         val block = blocks.firstOrNull { it.id == id } ?: return
         _toBlockStatistics.value = block
